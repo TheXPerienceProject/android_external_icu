@@ -43,6 +43,12 @@ import android.icu.util.ULocale.Category;
 /**
  * <strong>[icu enhancement]</strong> ICU's replacement for {@link java.text.DecimalFormat}.&nbsp;Methods, fields, and other functionality specific to ICU are labeled '<strong>[icu]</strong>'.
  *
+ * <p>
+ * <strong>IMPORTANT:</strong> New users are strongly encouraged to see if
+ * {@link NumberFormatter} fits their use case.  Although not deprecated, this
+ * class, DecimalFormat, is only provided for java.text.DecimalFormat compatibility.
+ * <hr>
+ *
  * <code>DecimalFormat</code> is the primary
  * concrete subclass of {@link NumberFormat}. It has a variety of features designed to make it
  * possible to parse and format numbers in any locale, including support for Western, Arabic, or
@@ -2069,16 +2075,6 @@ public class DecimalFormat extends NumberFormat {
     properties.setParseMode(mode);
     refreshFormatter();
   }
-
-  // BEGIN android-added: Allow libcore to use java-compatible parsing mode
-  /**
-   * @param parseJavaCompatible true for java-compatible mode, and otherwise lenient mode.
-   * @hide draft / provisional / internal are hidden on Android
-   */
-  public void setParseJavaCompatible(boolean parseJavaCompatible) {
-    setParseStrictMode(parseJavaCompatible ? ParseMode.JAVA_COMPATIBILITY : ParseMode.LENIENT);
-  }
-  // END android-added: Allow libcore to use java-compatible parsing mode
 
   /**
    * Android libcore uses this internal method to set {@link ParseMode#JAVA_COMPATIBILITY}.

@@ -1336,6 +1336,7 @@ public class DateTimePatternGenerator implements Freezable<DateTimePatternGenera
      *
      * @param field The index to get the append item name.
      * @return name for field
+     * @see #getFieldDisplayName(int, DisplayWidth)
      */
     public String getAppendItemName(int field) {
         return getFieldDisplayName(field, APPENDITEM_WIDTH);
@@ -1343,7 +1344,6 @@ public class DateTimePatternGenerator implements Freezable<DateTimePatternGenera
 
     /**
      * Return the default hour cycle.
-     * @hide draft / provisional / internal are hidden on Android
      */
     public DateFormat.HourCycle getDefaultHourCycle() {
       switch(getDefaultHourFormatChar()) {
